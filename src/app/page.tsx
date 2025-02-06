@@ -1,30 +1,25 @@
-import ProductList from "./components/ProductList";
-import Slider from "./components/Slider";
-import CategoryList from "./components/CategoryList";
-import ListPage from "./list/page";
+import { Suspense } from "react";
+
 import Filter from "./components/Filter";
+import Hero from "./components/Hero";
+import Slider from "./components/Slider";
+import ProductList from "./components/ProductList";
+import CategoryList from "./components/CategoryList";
 
 export default function Home() {
   return (
     <div>
-      <ListPage />
+      <Hero />
       <Filter />
       <Slider />
 
-      <div className="px-4 md:px-8 lg:px-16 xl:32 2xl:px-64">
-        <h1 className="text-2xl font-semibold tracking-wide">
-          Featured Products
-        </h1>
-
+      <Suspense fallback={<span>Loading...</span>}>
         <ProductList />
-      </div>
+      </Suspense>
 
-      <div className="mt-24">
-        <h1 className="text-2xl px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 mb-12">
-          Categories
-        </h1>
+      <Suspense fallback={<span>Loading...</span>}>
         <CategoryList />
-      </div>
+      </Suspense>
     </div>
   );
 }

@@ -2,9 +2,7 @@ import ProductImage from "@/app/components/ProductImage";
 import Customize from "@/app/components/Customize";
 import Add from "@/app/components/Add";
 
-
 const Detail = () => {
-
   const additionalInfo = [
     { title: "Title 1", content: "Detailed information about Title 1..." },
     { title: "Title 2", content: "More details about Title 2..." },
@@ -22,7 +20,8 @@ const Detail = () => {
       <div className="w-full lg:w-1/2 flex flex-col gap-8">
         <h1 className="text-3xl font-medium">Product Name</h1>
         <p className="text-sm text-gray-600">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur quam ab dolore harum deleniti ipsa autem magnam corrupti.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
+          aspernatur quam ab dolore harum deleniti ipsa autem magnam corrupti.
         </p>
         <div className="h-[2px] bg-gray-200" />
 
@@ -41,9 +40,7 @@ const Detail = () => {
         {/* Additional Information - Expandable */}
         {additionalInfo.map((item, index) => (
           <div key={index} className="text-sm border-b pb-4">
-            <button
-              className="w-full text-left text-lg font-medium flex justify-between items-center"
-            >
+            <button className="w-full text-left text-lg font-medium flex justify-between items-center">
               {item.title}
             </button>
           </div>

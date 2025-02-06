@@ -1,70 +1,61 @@
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
+import SectionContainer from "./SectionContainer";
 
-type Product = {
-  id: number,
-  name: string,
-  title: string,
-  image: string,
-  description: string,
-  price: number
-}
+import { FAKE_API_BASE_URL } from "../constants/AppConfig";
+import { Product } from "../types/Product";
+import { currencyFormatter } from "../utils/currencyFormatter";
+import { AddToCartButton } from "./AddToCartButton";
 
-async function getProducts() {
-  const response = await fetch("https://fakestoreapi.com/products?limit=8");
-
+async function getProducts(): Promise<Product[]> {
+  const response = await fetch(`${FAKE_API_BASE_URL}/products?limit=8`);
   const data = await response.json();
 
-  return data as Product[];
+  return data;
 }
 
 export default async function ProductList() {
-
   const products = await getProducts();
 
-
   return (
-    <div className='mt-12 flex gap-x-8 gap-y-16 justify-between flex-wrap'>
-     
-     {
-      products.map(product => (
+    <SectionContainer>
+      <h1 className="text-2xl font-semibold tracking-wide">
+        Featured Products
+      </h1>
 
-        <Link key={product.id} href={`/products/${product.id}`} className="w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]">
-        <div className="relative w-full h-96">
-          <Image 
-            src={product.image} 
-            alt="Product 1"
-            layout="fill"
-            objectFit="cover"
-            sizes="25vw" 
-            className="absolute rounded-lg shadow-md z-10 hover:opacity-0 transition-opacity ease duration-500"
-          />
-          <Image 
-            src={product.image} 
-            alt="Product 1"
-            layout="fill"
-            objectFit="cover"
-            sizes="25vw" 
-            className="absolute rounded-lg shadow-md"
-          />
-        </div>
-        <div className="flex justify-between">
-        <span className="font-medium">{product.name}</span>
-        <span className="text-sm text-gray-600">{product.price}</span>
-        </div>
-        <p className="text-sm text-gray-500">{product.description}</p>
-        <div className="flex items-center gap-2">
-          <span className="font-medium">Quantity: 1</span>
-          <button
-           className="rounded-2xl ring-1 ring-lama text-lama w-max py-2 px-4 text-xs hover:bg-lama hover:text-white">
-            Add to Cart
-          </button>
-        </div>
-</Link>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+        {products.map((product) => (
+          <div key={product.id} className="border rounded">
+            <div className="relative h-[256px] m-4">
+              <Link href={`/products/${product.id}`}>
+                <Image
+                  src={product.image}
+                  alt="Product 1"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </Link>
+            </div>
 
-      ))
-     }
+            <div className="p-4 border-t">
+              <div className="flex justify-between gap-2 items-center truncate">
+                <span className="font-medium truncate text-gray-500">
+                  {product.title}
+                </span>
 
-    </div>
-  )
+                <span className="font-semibold text-gray-600">
+                  {currencyFormatter(product.price)}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-4 mt-2">
+                <span className="font-medium text-gray-500">Quantity: 1</span>
+                <AddToCartButton product={product} />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </SectionContainer>
+  );
 }
