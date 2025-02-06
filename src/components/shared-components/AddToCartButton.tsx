@@ -1,12 +1,12 @@
 "use client";
 
-import { Product } from "../types/Product";
+import { Product } from "../../types/Product";
 
 interface AddToCartButtonProps {
   product: Product;
 }
 
-export function AddToCartButton({ product }: AddToCartButtonProps) {
+export default function AddToCartButton({ product }: AddToCartButtonProps) {
   return (
     <button
       onClick={() => alert(`Add product ${product.title} to cart`)}

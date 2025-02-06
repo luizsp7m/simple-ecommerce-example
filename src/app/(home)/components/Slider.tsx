@@ -35,7 +35,7 @@ const Slider = () => {
   const [current, setCurrent] = useState(0);
 
   return (
-    <div className="hidden relative h-[calc(100vh-80px)] overflow-hidden py-4">
+    <div className="relative h-[calc(100vh-80px)] overflow-hidden">
       {/* SLIDES CONTAINER */}
       <div
         className="w-max h-full flex transition-transform ease-in-out duration-1000"

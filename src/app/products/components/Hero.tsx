@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SectionContainer from "./SectionContainer";
+import SectionContainer from "../../../components/shared-components/SectionContainer";
 
 const Hero = () => {
   return (

@@ -8,6 +8,7 @@ import CartModal from "./CartModal";
 const NavIcons = () => {
   const [isOpenProfile, setIsOpenProfile] = useState(false);
   const [isOpenCart, setIsOpenCart] = useState(false);
+
   const router = useRouter();
   const isLoggedIn = false;
 
@@ -33,7 +34,10 @@ const NavIcons = () => {
         />
         {isOpenProfile && (
           <div className="absolute p-4 rounded-md top-12 left-0 bg-white text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
-            <Link href="/profile" className="block text-gray-700 hover:underline">
+            <Link
+              href="/profile"
+              className="block text-gray-700 hover:underline"
+            >
               Profile
             </Link>
             <div
@@ -47,10 +51,19 @@ const NavIcons = () => {
       </div>
 
       {/* Notification Icon */}
-      <Image src="/notification.png" alt="notification" width={22} height={22} className="cursor-pointer" />
+      <Image
+        src="/notification.png"
+        alt="notification"
+        width={22}
+        height={22}
+        className="cursor-pointer"
+      />
 
       {/* Cart Icon */}
-      <div className="relative cursor-pointer" onClick={() => setIsOpenCart((prev) => !prev)}>
+      <div
+        className="relative cursor-pointer"
+        onClick={() => setIsOpenCart((prev) => !prev)}
+      >
         <Image src="/cart.png" alt="cart" width={24} height={24} />
         <div className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-red-500 rounded-full text-white text-xs flex justify-center items-center">
           2
@@ -58,9 +71,7 @@ const NavIcons = () => {
       </div>
 
       {/* Cart Modal */}
-      {isOpenCart && (
-        <CartModal /> 
-      )}
+      {isOpenCart && <CartModal />}
     </div>
   );
 };

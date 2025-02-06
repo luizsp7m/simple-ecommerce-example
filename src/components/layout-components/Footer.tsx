@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="py-24 px-4 md:px-8 lg:px-16 xl:32 2xl:px-64 bg-gray-100 text-sm mt-24">
+    <div className="py-24 px-4 md:px-8 lg:px-16 xl:32 2xl:px-64 bg-gray-100 text-sm">
       {/* TOP */}
       <div className="flex flex-col md:flex-row justify-between gap-24">
         {/* LEFT */}
@@ -11,26 +11,48 @@ const Footer = () => {
           <Link href="/">
             <div className="text-2xl tracking-wide">Enlightors</div>
           </Link>
-          <p>MRF 5D Towers, Floor 03, OFC. 07
-          Erbil, Kurdistan Region, Iraq
-          </p>
+          <p>MRF 5D Towers, Floor 03, OFC. 07 Erbil, Kurdistan Region, Iraq</p>
           <span className="font-semibold">info@enlightors.com</span>
           <span className="font-semibold">+964 751 504 0880</span>
           <div className="flex gap-6">
-          <a href="https://www.facebook.com/enlightors" target="_blank" rel="noopener noreferrer">
-  <Image src="/facebook.png" alt="Facebook" width={16} height={16} />
-</a>
-<a href="https://www.instagram.com/enlightors/" target="_blank" rel="noopener noreferrer">
-  <Image src="/instagram.png" alt="Instagram" width={16} height={16} />
-</a>
-<a href="https://www.youtube.com/@enlightors/videos" target="_blank" rel="noopener noreferrer">
-  <Image src="/youtube.png" alt="YouTube" width={16} height={16} />
-</a>
-<a href="https://x.com/i/flow/login?redirect_after_login=%2FEnlightors" target="_blank" rel="noopener noreferrer">
-  <Image src="/x.png" alt="X" width={16} height={16} />
-</a>
-
-
+            <a
+              href="https://www.facebook.com/enlightors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/facebook.png"
+                alt="Facebook"
+                width={16}
+                height={16}
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/enlightors/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/instagram.png"
+                alt="Instagram"
+                width={16}
+                height={16}
+              />
+            </a>
+            <a
+              href="https://www.youtube.com/@enlightors/videos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src="/youtube.png" alt="YouTube" width={16} height={16} />
+            </a>
+            <a
+              href="https://x.com/i/flow/login?redirect_after_login=%2FEnlightors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src="/x.png" alt="X" width={16} height={16} />
+            </a>
           </div>
         </div>
         {/* CENTER */}
@@ -93,8 +115,9 @@ const Footer = () => {
       </div>
       {/* BOTTOM */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-16">
-        <div className="">Be Visible.
-        © 2024 Enlightors. All Rights Reserved.</div>
+        <div className="">
+          Be Visible. © 2024 Enlightors. All Rights Reserved.
+        </div>
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="">
             <span className="text-gray-500 mr-4">Language</span>

@@ -1,6 +1,5 @@
-export default function Page(){
+import SectionContainer from "../../components/shared-components/SectionContainer";
 
-    return (
-        <p>login page</p>
-    )
+export default function Page() {
+  return <SectionContainer>Login Page</SectionContainer>;
 }
