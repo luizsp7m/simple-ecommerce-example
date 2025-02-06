@@ -43,8 +43,6 @@ export default async function FilteredProducts({
     sortBy: searchParams?.sortBy,
   });
 
-  console.log(searchParams);
-
   return (
     <SectionContainer className="flex flex-col gap-4">
       <Heading title="Featured Products" />

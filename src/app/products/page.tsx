@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Filter from "./components/Filter";
 import FilteredProducts from "./components/FilteredProducts";
 import Loading from "../../components/shared-components/Loading";
+import Hero from "./components/Hero";
 
 export default async function ProductsPage(props: {
   searchParams?: Promise<{
@@ -13,7 +14,7 @@ export default async function ProductsPage(props: {
 
   return (
     <div>
-      {/* <Hero /> */}
+      <Hero />
 
       <div className="space-y-6 my-6">
         <Filter

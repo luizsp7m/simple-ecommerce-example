@@ -3,10 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
 
   return (
     <div>
@@ -22,11 +34,9 @@ const Menu = () => {
       {open && (
         <div className="absolute bg-black text-white left-0 top-20 w-full h-[calc(100vh-80px)] flex flex-col gap-8 items-center justify-center text-xl z-10">
           <Link href="/">Home</Link>
-          <Link href="/shop">Shop</Link>
-          <Link href="/details">Details</Link>
-          <Link href="/about">About</Link> {/* Corrected "link" to "Link" */}
-          <Link href="/logout">LogOut</Link>
-          <Link href="/contact">contact</Link>
+          <Link href="/products">Products</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
         </div>
       )}
     </div>

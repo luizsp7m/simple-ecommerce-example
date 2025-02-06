@@ -30,10 +30,9 @@ const Navbar = () => {
           </Link>
           <div className="hidden xl:flex gap-4">
             <Link href="/">Home</Link>
-            <Link href="/shop">Shop</Link>
-            <Link href="/details">Details</Link>
+            <Link href="/products">Products</Link>
             <Link href="/about">About</Link>
-            <Link href="/contact">contact</Link>
+            <Link href="/contact">Contact</Link>
           </div>
         </div>
         {/* Right of the screen */}
