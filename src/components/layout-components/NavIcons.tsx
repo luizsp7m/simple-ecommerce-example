@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import CartModal from "./CartModal";
+import { useCart } from "../../hooks/useCart";
 
 const NavIcons = () => {
   const [isOpenProfile, setIsOpenProfile] = useState(false);
@@ -11,6 +12,8 @@ const NavIcons = () => {
 
   const router = useRouter();
   const isLoggedIn = false;
+
+  const { productsInCart } = useCart();
 
   const handleProfile = () => {
     if (!isLoggedIn) {
@@ -66,7 +69,7 @@ const NavIcons = () => {
       >
         <Image src="/cart.png" alt="cart" width={24} height={24} />
         <div className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-red-500 rounded-full text-white text-xs flex justify-center items-center">
-          2
+          {productsInCart.length}
         </div>
       </div>
 

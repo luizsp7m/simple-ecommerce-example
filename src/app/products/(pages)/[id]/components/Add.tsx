@@ -1,8 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useCart } from "../../../../../hooks/useCart";
+import { Product } from "../../../../../types/Product";
 
-const Add = () => {
+const Add = ({ product }: { product: Product }) => {
+  const { handleAddProductToCart } = useCart();
+
   const [quantity, setQuantity] = useState(1);
   // Temporary stock value
   const stock = 4;
@@ -50,7 +54,10 @@ const Add = () => {
         </div>
       </div>
       {/* Add to Cart Button */}
-      <button className="w-36 text-sm rounded-3xl ring-1 ring-lama text-lama py-2 px-4 hover:bg-lama hover:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:ring-0 disabled:text-white">
+      <button
+        onClick={() => handleAddProductToCart(product, quantity)}
+        className="w-36 text-sm rounded-3xl ring-1 ring-lama text-lama py-2 px-4 hover:bg-lama hover:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:ring-0 disabled:text-white"
+      >
         Add to Cart
       </button>
     </div>

@@ -49,7 +49,7 @@ export default async function ProductPage(props: {
 
         {/* Customization and Add to Cart */}
         <Customize />
-        <Add />
+        <Add product={product} />
         <div className="h-[2px] bg-gray-200" />
 
         {/* Additional Information - Expandable */}
