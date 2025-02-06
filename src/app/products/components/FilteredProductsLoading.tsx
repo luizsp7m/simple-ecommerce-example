@@ -4,7 +4,7 @@ import ProductCardSkeleton from "./ProductCardSkeleton";
 
 export default function FilteredProductsLoading() {
   return (
-    <SectionContainer>
+    <SectionContainer className="flex flex-col gap-4">
       <Heading title="Featured Products" />
 
       <div

@@ -6,6 +6,10 @@ interface ProductListProps {
 }
 
 export default function ProductList({ products }: ProductListProps) {
+  if (products.length === 0) {
+    return <span>No products found</span>;
+  }
+
   return (
     <div
       className="gap-4"
