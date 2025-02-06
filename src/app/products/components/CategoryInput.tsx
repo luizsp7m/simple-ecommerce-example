@@ -19,7 +19,7 @@ export default function CategoryInput({
 
   return (
     <select
-      className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
+      className="py-2 px-4 rounded text-xs font-medium bg-white ring-1 ring-gray-400"
       onChange={(e) => handleChangeCategory(e.target.value)}
       defaultValue={selectedCategory ?? ""}
     >

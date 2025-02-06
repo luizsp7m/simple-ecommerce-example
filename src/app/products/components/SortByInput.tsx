@@ -16,7 +16,7 @@ export default function SortByInput({ selectedSortBy }: SortByInputProps) {
   return (
     <select
       onChange={(e) => handleChangeSortBy(e.target.value)}
-      className="py-2 px-4 rounded-2xl text-xs font-medium bg-white ring-1 ring-gray-400"
+      className="py-2 px-4 rounded text-xs font-medium bg-white ring-1 ring-gray-400"
       defaultValue={selectedSortBy ?? ""}
     >
       <option value="">SORT BY</option>
