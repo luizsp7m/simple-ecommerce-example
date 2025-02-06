@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ scrollbarGutter: "stable" }}>
       <body className={inter.className}>
         <CartProvider>
           <section className="min-h-svh flex flex-col">

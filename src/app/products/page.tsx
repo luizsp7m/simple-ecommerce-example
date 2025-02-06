@@ -1,8 +1,9 @@
 import { Suspense } from "react";
+
 import Filter from "./components/Filter";
 import FilteredProducts from "./components/FilteredProducts";
-import Loading from "../../components/shared-components/Loading";
 import Hero from "./components/Hero";
+import FilteredProductsLoading from "./components/FilteredProductsLoading";
 
 export default async function ProductsPage(props: {
   searchParams?: Promise<{
@@ -22,7 +23,10 @@ export default async function ProductsPage(props: {
           selectedSortBy={searchParams?.sortBy}
         />
 
-        <Suspense key={JSON.stringify(searchParams)} fallback={<Loading />}>
+        <Suspense
+          key={JSON.stringify(searchParams)}
+          fallback={<FilteredProductsLoading />}
+        >
           <FilteredProducts searchParams={searchParams} />
         </Suspense>
       </div>
