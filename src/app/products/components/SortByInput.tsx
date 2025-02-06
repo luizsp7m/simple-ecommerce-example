@@ -1,29 +1,23 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useUpdateSearchParams } from "../hooks/useUpdateSearchParams";
 
-export default function SortByInput() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
+interface SortByInputProps {
+  selectedSortBy?: string;
+}
 
-  const onChangeSortBy = (value: string) => {
-    const params = new URLSearchParams(
-      searchParams ? Array.from(searchParams.entries()) : []
-    );
+export default function SortByInput({ selectedSortBy }: SortByInputProps) {
+  const { updateSearchParams } = useUpdateSearchParams();
 
-    if (value) {
-      params.set("sortBy", value);
-    } else {
-      params.delete("sortBy");
-    }
-
-    router.push(`?${params.toString()}`);
-  };
+  function handleChangeSortBy(value: string) {
+    updateSearchParams({ key: "sortBy", value });
+  }
 
   return (
     <select
-      onChange={(e) => onChangeSortBy(e.target.value)}
+      onChange={(e) => handleChangeSortBy(e.target.value)}
       className="py-2 px-4 rounded-2xl text-xs font-medium bg-white ring-1 ring-gray-400"
+      defaultValue={selectedSortBy ?? ""}
     >
       <option value="">SORT BY</option>
       <option value="asc">PRODUCT ASC</option>

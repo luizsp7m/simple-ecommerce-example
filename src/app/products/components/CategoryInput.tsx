@@ -1,33 +1,27 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useUpdateSearchParams } from "../hooks/useUpdateSearchParams";
 
 interface CategoryInputProps {
   categories: string[];
+  selectedCategory?: string;
 }
 
-export default function CategoryInput({ categories }: CategoryInputProps) {
-  const searchParams = useSearchParams();
-  const router = useRouter();
+export default function CategoryInput({
+  categories,
+  selectedCategory,
+}: CategoryInputProps) {
+  const { updateSearchParams } = useUpdateSearchParams();
 
-  const onChangeCategory = (value: string) => {
-    const params = new URLSearchParams(
-      searchParams ? Array.from(searchParams.entries()) : []
-    );
-
-    if (value) {
-      params.set("category", value);
-    } else {
-      params.delete("category");
-    }
-
-    router.push(`?${params.toString()}`);
-  };
+  function handleChangeCategory(value: string) {
+    updateSearchParams({ key: "category", value });
+  }
 
   return (
     <select
       className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
-      onChange={(e) => onChangeCategory(e.target.value)}
+      onChange={(e) => handleChangeCategory(e.target.value)}
+      defaultValue={selectedCategory ?? ""}
     >
       <option value="">SELECT A CATEGORY</option>
 

@@ -10,13 +10,22 @@ async function getCategories(): Promise<string[]> {
   return data;
 }
 
-const Filter = async () => {
+interface FilterProps {
+  selectedCategory?: string;
+  selectedSortBy?: string;
+}
+
+const Filter = async ({ selectedCategory, selectedSortBy }: FilterProps) => {
   const categories = await getCategories();
 
   return (
     <SectionContainer className="flex items-center gap-2">
-      <CategoryInput categories={categories} />
-      <SortByInput />
+      <CategoryInput
+        categories={categories}
+        selectedCategory={selectedCategory}
+      />
+
+      <SortByInput selectedSortBy={selectedSortBy} />
     </SectionContainer>
   );
 };
